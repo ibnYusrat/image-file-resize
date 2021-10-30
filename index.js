@@ -19,13 +19,8 @@ module.exports = function({ file, width, height, type }) {
                         const elem = document.createElement('canvas');
                         // Set propotional image size
                         if (imgWidth !== 'auto' && imgHeight !== 'auto') {
-                            if (img.width > img.height) {
-                                elem.height = imgHeight;
-                                elem.width = img.width * (imgHeight / img.height);
-                            } else {
-                                elem.width = imgWidth;
-                                elem.height = img.height * (imgWidth / img.width);
-                            }
+                            elem.width = imgWidth;
+                            elem.height = imgHeight;
                         } else if (imgWidth !== 'auto') {
                             elem.width = imgWidth;
                             elem.height = img.height * (imgWidth / img.width);
@@ -34,7 +29,7 @@ module.exports = function({ file, width, height, type }) {
                             elem.width = img.width * (imgHeight / img.height);
                         }
                         const ctx = elem.getContext('2d');
-                        ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
+                        ctx.drawImage(img, 0, 0, elem.width, elem.height);
                         ctx.canvas.toBlob((blob) => {
                             const file = new File([blob], fileName, {
                                 type: `image/${imageType.toLowerCase()}`,
