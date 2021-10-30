@@ -4,8 +4,11 @@ module.exports = function({ file, width, height, type }) {
         try {
             if (file.name && file.name.split(".").reverse()[0] && allow.includes(file.name.split(".").reverse()[0].toLowerCase()) && file.size && file.type) {
                 let imageType = type ? type : 'jpeg';
-                const imgWidth = width ? width : 500;
-                const imgHeight = height ? height : 300;
+                const imgWidth = width ? width : 'auto';
+                const imgHeight = height ? height : 'auto';
+                if (imgWidth === 'auto' && imgHeight === 'auto') {
+                    throw new Error('Please define width or height');
+                }
                 const fileName = file.name;
                 const reader = new FileReader();
                 reader.readAsDataURL(file);
@@ -14,8 +17,22 @@ module.exports = function({ file, width, height, type }) {
                     img.src = event.target.result;
                     img.onload = () => {
                         const elem = document.createElement('canvas');
-                        elem.width = imgWidth;
-                        elem.height = imgHeight;
+                        // Set propotional image size
+                        if (imgWidth !== 'auto' && imgHeight !== 'auto') {
+                            if (img.width > img.height) {
+                                elem.height = imgHeight;
+                                elem.width = img.width * (imgHeight / img.height);
+                            } else {
+                                elem.width = imgWidth;
+                                elem.height = img.height * (imgWidth / img.width);
+                            }
+                        } else if (imgWidth !== 'auto') {
+                            elem.width = imgWidth;
+                            elem.height = img.height * (imgWidth / img.width);
+                        } else if (imgHeight !== 'auto') {
+                            elem.height = imgHeight;
+                            elem.width = img.width * (imgHeight / img.height);
+                        }
                         const ctx = elem.getContext('2d');
                         ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
                         ctx.canvas.toBlob((blob) => {

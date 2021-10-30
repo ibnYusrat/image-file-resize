@@ -1,19 +1,19 @@
 {
-  "name": "image-file-resize",
-  "version": "1.0.4",
-  "description": "To resize or compress image file by weight and height. Image compression with extension: jpg/jpeg, svg, png, gif.",
+  "name": "client-size-image-resize",
+  "version": "1.1",
+  "description": "To resize or compress image file by weight and height. Image compression with extension: jpg/jpeg, svg, png, gif. This is a fork of https://github.com/arun-kataria/image-file-resize, but with an added feature of proportional resize.",
   "main": "index.js",
   "author": {
-    "name": "Arun kataria",
-    "email": "sdarunkataria@gmail.com",
-    "url": "https://github.com/arun-kataria/image-file-resize/"
+    "name": "Muhammad bin Yusrat",
+    "email": "ibnyusrat@gmail.com",
+    "url": "https://github.com/ibnyusrat/image-file-resize/"
   },
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/arun-kataria/image-file-resize/"
+    "url": "https://github.com/ibnyusrat/image-file-resize/"
   },
-  "bugs": "https://github.com/arun-kataria/image-file-resize/issues",
+  "bugs": "https://github.com/ibnyusrat/image-file-resize/issues",
   "keywords": [
     "font-end image compress",
     "fontend image compress",
@@ -35,6 +35,8 @@
     "image compression",
     "compression image",
     "compress",
+    "proportional",
+    "auto",
     "compress image",
     "image compress",
     "image mini",
@@ -44,6 +46,8 @@
     "image compress size",
     "image size minify",
     "image lessen",
+    "client",
+    "browser",
     "jpeg compression",
     "jpg compression",
     "svg compression",
