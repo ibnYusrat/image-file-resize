@@ -1,4 +1,4 @@
-# image-file-resize
+# client-side-image-resize 
  
 This project is a fork of https://www.npmjs.com/package/image-file-resize.
 
@@ -14,7 +14,7 @@ npm install client-side-image-resize --save
 ## Examples of how to use it
 
 ```javascript
-    import convert from 'client-size-image-resize';
+    import convert from 'client-side-image-resize';
 
     convert({ 
         file: e.target.files[0],  
