@@ -1,6 +1,6 @@
 {
   "name": "client-side-image-resize",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "To resize or compress image file by weight and height. Image compression with extension: jpg/jpeg, svg, png, gif. This is a fork of https://github.com/arun-kataria/image-file-resize, but with an added feature of proportional resize.",
   "main": "index.js",
   "author": {
